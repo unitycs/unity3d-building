@@ -5,31 +5,31 @@ using UnityEngine;
 public class RotationBuilding : MonoBehaviour
 {
     public float s;
-    bool md;
+    bool isMouseDown = false;
     Vector3 pos;
     Vector3 dis;
     void Start()
     {
-        md = false;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             pos = Input.mousePosition;
-            md = true;
+            isMouseDown = true;
         }
-        else if(Input.GetMouseButtonUp(0))
+        else if (Input.GetMouseButtonUp(0))
         {
-            md = false;
+            isMouseDown = false;
         }
 
-        if(md)
+        if (isMouseDown)
         {
             dis = Input.mousePosition - pos;
-            transform.Rotate(0,-dis.x*s,dis.y*s,Space.World);
+            transform.Rotate(0, -dis.x * s, dis.y * s, Space.World);
             pos = Input.mousePosition;
         }
     }
