@@ -3454,7 +3454,7 @@ GameObject:
   - component: {fileID: 1596093872}
   - component: {fileID: 1596093871}
   m_Layer: 0
-  m_Name: Groud
+  m_Name: Groud_Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
