@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465782, g: 0.49641252, b: 0.5748167, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2620,7 +2620,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1438084352}
+      - m_Target: {fileID: 0}
         m_MethodName: Onbtnc
         m_Mode: 1
         m_Arguments:
@@ -3122,8 +3122,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1438084351}
-  - component: {fileID: 1438084352}
   - component: {fileID: 1438084353}
+  - component: {fileID: 1438084352}
   m_Layer: 0
   m_Name: Building
   m_TagString: Untagged
@@ -3159,18 +3159,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1438084350}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdeb8cdaa54ac124ab3e463cc0907d7a, type: 3}
+  m_Script: {fileID: 11500000, guid: 57cd0052b9abb7d4f999fd4dd13dd572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gm1: {fileID: 637596867}
-  gm2: {fileID: 714049034}
-  gm3: {fileID: 989517591}
-  m1: {fileID: 2100000, guid: a9cf00fb220c55a46b60f5d2674d50ae, type: 2}
-  m2: {fileID: 2100000, guid: 0212b8f5c588c734bb903fb6568409e5, type: 2}
-  m3: {fileID: 2100000, guid: 36a8b7ebc260b3d48a74ca49603e25bf, type: 2}
-  c1: {r: 0.5377358, g: 0.49968848, b: 0.49968848, a: 1}
-  c2: {r: 0.07564971, g: 0.10166656, b: 0.9433962, a: 1}
-  txt: {fileID: 0}
+  s: 0
 --- !u!114 &1438084353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3180,10 +3172,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1438084350}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 57cd0052b9abb7d4f999fd4dd13dd572, type: 3}
+  m_Script: {fileID: 11500000, guid: cdeb8cdaa54ac124ab3e463cc0907d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  s: 0.5
+  gm1: {fileID: 0}
+  gm2: {fileID: 0}
+  gm3: {fileID: 0}
+  m1: {fileID: 0}
+  m2: {fileID: 0}
+  m3: {fileID: 0}
+  c1: {r: 0, g: 0, b: 0, a: 0}
+  c2: {r: 0, g: 0, b: 0, a: 0}
+  txt: {fileID: 0}
 --- !u!1 &1456623621
 GameObject:
   m_ObjectHideFlags: 0
