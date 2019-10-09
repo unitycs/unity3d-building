@@ -448,7 +448,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 170076733}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0.49, y: 4.16, z: -0.84}
+  m_LocalPosition: {x: 0, y: 3, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1515,7 +1515,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 55
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -1986,7 +1986,7 @@ GameObject:
   - component: {fileID: 714049037}
   - component: {fileID: 714049036}
   m_Layer: 5
-  m_Name: Text_kechine_room
+  m_Name: Text_kitchen_room
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3139,7 +3139,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1438084350}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.3, y: 2.6, z: -1.6}
+  m_LocalPosition: {x: -3.3, y: 2.71, z: -1.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1287662930}
@@ -3162,7 +3162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57cd0052b9abb7d4f999fd4dd13dd572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  s: 0
+  s: 0.5
 --- !u!114 &1438084353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3175,15 +3175,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdeb8cdaa54ac124ab3e463cc0907d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gm1: {fileID: 0}
-  gm2: {fileID: 0}
-  gm3: {fileID: 0}
-  m1: {fileID: 0}
-  m2: {fileID: 0}
-  m3: {fileID: 0}
-  c1: {r: 0, g: 0, b: 0, a: 0}
-  c2: {r: 0, g: 0, b: 0, a: 0}
-  txt: {fileID: 0}
+  gm1: {fileID: 637596867}
+  gm2: {fileID: 714049034}
+  gm3: {fileID: 989517591}
+  m1: {fileID: 2100000, guid: a9cf00fb220c55a46b60f5d2674d50ae, type: 2}
+  m2: {fileID: 2100000, guid: 0212b8f5c588c734bb903fb6568409e5, type: 2}
+  m3: {fileID: 2100000, guid: 36a8b7ebc260b3d48a74ca49603e25bf, type: 2}
+  c1: {r: 0.5372549, g: 0.49803922, b: 0.49803922, a: 0}
+  c2: {r: 0.07450981, g: 0.101960786, b: 0.94509804, a: 0}
+  txt: {fileID: 5552238342249497492}
 --- !u!1 &1456623621
 GameObject:
   m_ObjectHideFlags: 0
@@ -4862,3 +4862,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e620310522d7b542a38dedbacdaecd7, type: 3}
+--- !u!114 &5552238342249497492 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5552238341305049753, guid: 9e620310522d7b542a38dedbacdaecd7,
+    type: 3}
+  m_PrefabInstance: {fileID: 5552238342249497491}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
