@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System.Threading;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,7 +8,7 @@ public class RobotCtrl : MonoBehaviour {
     public Transform FollowedCamera;
     protected Animator m_Anim;
     CharacterController m_Ctrl;
-    public float m_Speed = 10f;
+    public float m_Speed = 5f;
 
     public GameObject kaifuku;
 
@@ -23,42 +24,28 @@ public class RobotCtrl : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
-        if (Input.GetKey (KeyCode.W)) {
+        if (Input.GetKey (KeyCode.W) || Input.GetKey (KeyCode.UpArrow)) {
             Debug.Log ("Move w");
+            transform.eulerAngles = new Vector3 (0, 270, 0);
             transform.Translate (Vector3.forward * m_Speed);
         }
-        if (Input.GetKey (KeyCode.A)) {
-            Debug.Log ("Move A");
-            transform.Translate (Vector3.left * m_Speed);
-        }
-        if (Input.GetKey (KeyCode.S)) {
+        //back
+        if (Input.GetKey (KeyCode.S) || Input.GetKey (KeyCode.DownArrow)) {
             Debug.Log ("Move S");
-            transform.Translate (Vector3.back * m_Speed);
+            transform.eulerAngles = new Vector3 (0, 90, 0);
+            transform.Translate (Vector3.forward * m_Speed);
         }
-        if (Input.GetKey (KeyCode.D)) {
+        //left
+        if (Input.GetKey (KeyCode.A) || Input.GetKey (KeyCode.LeftArrow)) {
+            Debug.Log ("Move A");
+            transform.eulerAngles = new Vector3 (0, 180, 0);
+            transform.Translate (Vector3.forward * m_Speed);
+        }
+        if (Input.GetKey (KeyCode.D) || Input.GetKey (KeyCode.RightArrow)) {
             Debug.Log ("Move D");
-            transform.Translate (Vector3.right * m_Speed);
+           transform.eulerAngles = new Vector3 (0, 0, 0);
+            transform.Translate (Vector3.forward * m_Speed);
         }
 
-        //上
-        if (Input.GetKey (KeyCode.UpArrow)) {
-            transform.eulerAngles = new Vector3 (0, 270, 0);
-            transform.position += transform.forward * m_Speed;
-        }
-        //下
-        else if (Input.GetKey (KeyCode.DownArrow)) {
-            transform.eulerAngles = new Vector3 (0, 180, 0);
-            transform.position += transform.forward * m_Speed;
-        }
-        //左
-        else if (Input.GetKey (KeyCode.LeftArrow)) {
-            transform.eulerAngles = new Vector3 (0, 270, 0);
-            transform.position += transform.forward * m_Speed;
-        }
-        //右
-        else if (Input.GetKey (KeyCode.RightArrow)) {
-            transform.eulerAngles = new Vector3 (0, 90, 0);
-            transform.position += transform.forward * m_Speed;
-        }
     }
 }
