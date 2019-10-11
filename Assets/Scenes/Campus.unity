@@ -187,8 +187,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 323359052}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10, y: 5, z: 0}
+  m_LocalRotation: {x: 0.12713714, y: -0.72856534, z: 0.14072916, w: 0.6581976}
+  m_LocalPosition: {x: 76.69778, y: 2.6001484, z: 49.83006}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -205,6 +205,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Robot Kyle
       objectReference: {fileID: 0}
+    - target: {fileID: 400018, guid: 320b1c2af77554f99a1658df4a6d3d5c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.00064981356
+      objectReference: {fileID: 0}
+    - target: {fileID: 400018, guid: 320b1c2af77554f99a1658df4a6d3d5c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.010304518
+      objectReference: {fileID: 0}
+    - target: {fileID: 400066, guid: 320b1c2af77554f99a1658df4a6d3d5c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.00064981356
+      objectReference: {fileID: 0}
+    - target: {fileID: 400066, guid: 320b1c2af77554f99a1658df4a6d3d5c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.010304518
+      objectReference: {fileID: 0}
     - target: {fileID: 400096, guid: 320b1c2af77554f99a1658df4a6d3d5c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 72.56817
@@ -219,19 +235,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400096, guid: 320b1c2af77554f99a1658df4a6d3d5c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400096, guid: 320b1c2af77554f99a1658df4a6d3d5c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.64115566
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 400096, guid: 320b1c2af77554f99a1658df4a6d3d5c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400096, guid: 320b1c2af77554f99a1658df4a6d3d5c, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7674108
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 400096, guid: 320b1c2af77554f99a1658df4a6d3d5c, type: 3}
       propertyPath: m_RootOrder
@@ -243,14 +259,45 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400096, guid: 320b1c2af77554f99a1658df4a6d3d5c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -79.756004
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 400096, guid: 320b1c2af77554f99a1658df4a6d3d5c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 320b1c2af77554f99a1658df4a6d3d5c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 320b1c2af77554f99a1658df4a6d3d5c, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: a9fa3408335edfd43a0953a637c59967, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 320b1c2af77554f99a1658df4a6d3d5c, type: 3}
+--- !u!1 &786011143 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 100096, guid: 320b1c2af77554f99a1658df4a6d3d5c,
+    type: 3}
+  m_PrefabInstance: {fileID: 786011142}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &786011145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786011143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 529ad044033aaf44095ef1d7302f03f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FollowedCamera: {fileID: 0}
+  m_Speed: 0.1
+  kaifuku: {fileID: 786011143}
+  HeartMax: 0
+  HeartNow: 0
 --- !u!1 &1416368668
 GameObject:
   m_ObjectHideFlags: 0
