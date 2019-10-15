@@ -11,7 +11,7 @@ public class UIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        async = SceneManager.LoadSceneAsync(1);
+        async = SceneManager.LoadSceneAsync(0);
         async.allowSceneActivation = false;
     }
 
