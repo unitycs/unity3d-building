@@ -509,6 +509,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 786011144}
+  FollowedCamera: {fileID: 323359055}
+  m_Speed: 0.1
 --- !u!114 &786011148
 MonoBehaviour:
   m_ObjectHideFlags: 0
