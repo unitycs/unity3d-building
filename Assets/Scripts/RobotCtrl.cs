@@ -1,6 +1,6 @@
-﻿using System.Threading;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 [RequireComponent (typeof (Animator))]
@@ -24,6 +24,13 @@ public class RobotCtrl : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+
+        MoveTargetByKeyCode ();
+        //MoveTargetByKeyCode2();
+    }
+
+    void MoveTargetByKeyCode2 () {
+
         if (Input.GetKey (KeyCode.W) || Input.GetKey (KeyCode.UpArrow)) {
             Debug.Log ("Move w");
             transform.eulerAngles = new Vector3 (0, 270, 0);
@@ -43,8 +50,27 @@ public class RobotCtrl : MonoBehaviour {
         }
         if (Input.GetKey (KeyCode.D) || Input.GetKey (KeyCode.RightArrow)) {
             Debug.Log ("Move D");
-           transform.eulerAngles = new Vector3 (0, 0, 0);
+            transform.eulerAngles = new Vector3 (0, 0, 0);
             transform.Translate (Vector3.forward * m_Speed);
+        }
+    }
+
+    void MoveTargetByKeyCode () {
+
+        var h = Input.GetAxis ("Horizontal");
+        var v = Input.GetAxis ("Vertical");
+
+        if (h != 0 || v != 0) {
+            var mDir = new Vector3 (v * FollowedCamera.transform.forward.x + h * FollowedCamera.transform.right.x,
+                0, v * FollowedCamera.transform.forward.z + h * FollowedCamera.transform.right.z);
+            Quaternion newRotation = Quaternion.LookRotation (mDir);
+            transform.rotation = Quaternion.Slerp (transform.rotation, newRotation, 0.9f);
+            m_Ctrl.Move (mDir * Time.deltaTime);
+            // m_Anim.SetInteger("Speed", 2);
+            m_Anim.Play ("Run");
+        } else {
+            //m_Anim.SetInteger("Speed", 0);
+            m_Anim.Play ("Idle");
         }
 
     }
