@@ -6,16 +6,17 @@ using UnityEngine.AI;
 [RequireComponent (typeof (Animator))]
 public class RobotAutoCtrl : MonoBehaviour {
 
-    public NavMeshAgent agent;
+    protected NavMeshAgent agent;
     public Transform FollowedCamera;
     protected Animator m_Anim;
     CharacterController m_Ctrl;
-    public float m_Speed = 0.1f;
+   // public float m_Speed = 0.1f;
 
     // Start is called before the first frame update
     void Start () {
+        agent = GetComponent<NavMeshAgent> ();
         m_Anim = GetComponent<Animator> ();
-        m_Ctrl = GetComponent<CharacterController> ();
+        // m_Ctrl = GetComponent<CharacterController> ();
         //  HeartMax = 4;
         //  HeartNow = 3;
     }
@@ -23,29 +24,43 @@ public class RobotAutoCtrl : MonoBehaviour {
     // Update is called once per frame
     void Update () {
 
-        var h = Input.GetAxis ("Horizontal");
-        var v = Input.GetAxis ("Vertical");
+        // var h = Input.GetAxis ("Horizontal");
+        // var v = Input.GetAxis ("Vertical");
 
-        if (h != 0 || v != 0) {
-            var mDir = new Vector3 (v * FollowedCamera.transform.forward.x + h * FollowedCamera.transform.right.x,
-                0, v * FollowedCamera.transform.forward.z + h * FollowedCamera.transform.right.z);
-            Quaternion newRotation = Quaternion.LookRotation (mDir);
-            transform.rotation = Quaternion.Slerp (transform.rotation, newRotation, 0.9f);
+        // if (h != 0 || v != 0) {
+        //     var mDir = new Vector3 (v * FollowedCamera.transform.forward.x + h * FollowedCamera.transform.right.x,
+        //         0, v * FollowedCamera.transform.forward.z + h * FollowedCamera.transform.right.z);
+        //     Quaternion newRotation = Quaternion.LookRotation (mDir);
+        //     transform.rotation = Quaternion.Slerp (transform.rotation, newRotation, 0.9f);
 
-            m_Ctrl.Move (mDir * Time.deltaTime);
-            if (!m_Anim.GetBool ("Run")) m_Anim.SetBool ("Run", true);
-        } else {
-            if (m_Anim.GetBool ("Run")) m_Anim.SetBool ("Run", false);
-        }
+        //     // m_Ctrl.Move (mDir * Time.deltaTime);
+        //     // if (!m_Anim.GetBool ("Run")) m_Anim.SetBool ("Run", true);
+        // } else {
+        //     //if (m_Anim.GetBool ("Run")) m_Anim.SetBool ("Run", false);
+        // }
 
         if (Input.GetMouseButtonDown (0)) {
-            var ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+            RobotMoveTarget (1);
+        } else if (Input.GetMouseButtonDown (1)) {
+            RobotMoveTarget (2);
+        }
 
-            //    RaycastHit hit;
-            if (Physics.Raycast (ray, out RaycastHit hit)) {
+    }
 
-                agent.SetDestination (hit.point);
+    void RobotMoveTarget (int speed) {
+
+        var ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+        //    RaycastHit hit;
+        if (Physics.Raycast (ray, out RaycastHit hit)) {
+            m_Anim.SetInteger ("Speed", speed);
+            agent.SetDestination (hit.point);
+            //judge goal
+            var distance = agent.transform.position - hit.point;
+            if (distance.magnitude < 1) {
+                m_Anim.SetInteger ("Speed", 0);
+                //m_Anim.Play ("idle");
             }
         }
+
     }
 }
