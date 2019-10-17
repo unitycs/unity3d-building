@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -16,9 +17,9 @@ public class RobotAutoNav : MonoBehaviour {
     void Start () {
         agent = GetComponent<NavMeshAgent> ();
         m_Anim = GetComponent<Animator> ();
-        m_Ctrl = GetComponent<CharacterController> ();
+        // m_Ctrl = GetComponent<CharacterController> ();
 
-        // agent.updatePosition = false; // Don’t update position automatically
+        agent.updatePosition = false; // Don’t update position automatically
         //  HeartMax = 4;
         //  HeartNow = 3;
     }
@@ -33,22 +34,23 @@ public class RobotAutoNav : MonoBehaviour {
             MoveToTargetByNavMesh (2);
         }
 
-
     }
-
 
     void MoveToTargetByNavMesh (int speed) {
 
         var ray = Camera.main.ScreenPointToRay (Input.mousePosition);
         //    RaycastHit hit;
-
+        m_Anim.SetInteger ("Speed", speed);
         if (Physics.Raycast (ray, out RaycastHit hit)) {
             agent.SetDestination (hit.point);
+            // Quaternion newRotation = Quaternion.LookRotation (hit.point);
+            // transform.rotation = Quaternion.Slerp (transform.rotation, newRotation, 0.9f);
+            // m_Ctrl.Move (hit.point * Time.deltaTime);
             //judge goal
             var distance = agent.transform.position - hit.point;
-            if (distance.magnitude < 1) {
-                //m_Anim.SetInteger("Speed", 0);
-                m_Anim.Play ("Idle");
+            if (Math.Abs (distance.magnitude) < 1) {
+                m_Anim.SetInteger ("Speed", 0);
+                //m_Anim.Play ("Idle");
             }
         }
 
